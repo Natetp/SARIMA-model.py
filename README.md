@@ -99,24 +99,24 @@ plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
 plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
 
 # Seasonal PACF (P) and ACF (Q) Plot
-from statsmodels.graphics.tsaplots import plot_pacf
-fig, (ax1, ax2) = plt.subplots(2)
-plot_acf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax1)
-plot_pacf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax2)
+    from statsmodels.graphics.tsaplots import plot_pacf
+    fig, (ax1, ax2) = plt.subplots(2)
+    plot_acf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax1)
+    plot_pacf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax2)
 
 # Grid search (or hyperparameter optimization) for model selection
 # Define the p, d and q parameters to take any value between 0 and 2
-p = range(0, 2)
-d = range(0, 2)
-q = range(0, 2)
+    p = range(0, 2)
+    d = range(0, 2)
+    q = range(0, 2)
 
 # Generate all different combinations of p, q and q triplets
-pdq = list(itertools.product(p, d, q))
+    pdq = list(itertools.product(p, d, q))
 
 # Generate all different combinations of seasonal p, q and q triplets
-seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))]
-for param in pdq:
-    for param_seasonal in seasonal_pdq:
+    seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))]
+        for param in pdq:
+        for param_seasonal in seasonal_pdq:
         try:
             mod = sm.tsa.statespace.SARIMAX(df,
                                             order=param,
@@ -128,14 +128,14 @@ for param in pdq:
             forecast_test = mod_fit.forecast(len(test_data))
             mape = mean_absolute_percentage_error(test_data, forecast_test)
             print('SARIMA{}x{}12 - AIC:{} - MAPE:{}'.format(param, param_seasonal, mod_fit.aic,mape))
-        except:
-            continue
+            except:
+                continue
 # summarize result
 
-print("")
+    print("")
 
 # Auto ARIMA
-autoarima = auto_arima(df, start_p=0, d=1, start_q=0,
+    autoarima = auto_arima(df, start_p=0, d=1, start_q=0,
                        max_p=5, max_d=2, max_q=5,
                        start_P=0, D=1, start_Q=0,
                        max_P=5, max_D=2, max_Q=5, m=12,
@@ -146,26 +146,26 @@ autoarima = auto_arima(df, start_p=0, d=1, start_q=0,
                        stepwise=True,
                        random_state=20,
                        n_fits=50)
-print("Auto Arima")
-print(autoarima.summary())
-print("")
+    print("Auto Arima")
+    print(autoarima.summary())
+    print("")
 
 #Building SARIMA(p,d,q) = (2,1,2) (0,1,1,12) AIC =
-model = SARIMAX(df,order=(2, 1, 2),
+    model = SARIMAX(df,order=(2, 1, 2),
                 seasonal_order=(0, 1, 1, 12),
                 enforce_stationarity=False,
                 enforce_invertibility=False)
 
-model_fit = model.fit(disp=0)
-model_fit.plot_diagnostics(figsize=(15, 12))
-print(model_fit.summary())
-print("")
+    model_fit = model.fit(disp=0)
+    model_fit.plot_diagnostics(figsize=(15, 12))
+    print(model_fit.summary())
+    print("")
 
 # Validate model accuracy
-forecast_test = model_fit.forecast(len(df))
-mae = mean_absolute_error(df, forecast_test)
-mape = mean_absolute_percentage_error(df, forecast_test)
-rmse = np.sqrt(mean_squared_error(df, forecast_test))
+    forecast_test = model_fit.forecast(len(df))
+    mae = mean_absolute_error(df, forecast_test)
+    mape = mean_absolute_percentage_error(df, forecast_test)
+    rmse = np.sqrt(mean_squared_error(df, forecast_test))
 
 print(f'mae - Mean Absolute Error: {mae}')
 print(f'mape - Mean Absolute Percentage Error: {mape}')
