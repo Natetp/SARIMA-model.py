@@ -183,7 +183,7 @@ p-value 2nd Order Differencing: 0.000000
     model_fit.plot_diagnostics(figsize=(15, 12))
     print(model_fit.summary())
     print("")
-
+![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)
 # Validate model accuracy
     forecast_test = model_fit.forecast(len(df))
     mae = mean_absolute_error(df, forecast_test)
