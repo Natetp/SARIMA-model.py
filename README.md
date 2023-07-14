@@ -16,7 +16,7 @@ LTIA pax forecast 2023-2035
     warnings.filterwarnings("ignore") # specify to ignore warning messages
     plt.rcParams.update({'figure.figsize':(9,7), 'figure.dpi':120})
 
-    excel_file = "D:\CBKT LTIA\Ban CBKT CHKQT Long Thanh\Data analyst\LTIA Forecast - SARIMA\SGN_LTIA_forecastpax.xlsx"
+    excel_file = "SGN_LTIA_forecastpax.xlsx"
     df = pd.read_excel(excel_file, index_col=0)
     df = df.asfreq('MS')
     df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
