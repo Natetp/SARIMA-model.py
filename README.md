@@ -40,7 +40,7 @@ Date           Monthly Pax
     from statsmodels.tsa.seasonal import seasonal_decompose
     decompose_data = seasonal_decompose(df['Monthly Pax'], model='additive')
     decompose_data.plot()
-
+![Figure_1.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_1.png)
 # Split train-test set manually
     train_size = int(len(df['Monthly Pax']) * 0.55)
     train_data, test_data = df['Monthly Pax'][:train_size + 1], df['Monthly Pax'][train_size:]
@@ -49,7 +49,7 @@ Date           Monthly Pax
     print("Test data")
     print(test_data)
     print("")
-
+![Figure_2.png](
 # Plot train-test using matplotlib.pyplot
     plt.figure(figsize=(10,6))
     plt.grid(True)
@@ -216,7 +216,7 @@ rmse - Root-mean-square deviation: 2974174.424456362
     plt.legend()
     print(y_pred.predicted_mean)
     print("")
-![Figure_7.png](Pax Graph/Figure_7.png)
+![Figure_7.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_7.png)
 # Fure forecast (2023-2035)
     future = model_fit.get_forecast(steps=156, signal_only=False)
     future_ci = future.conf_int()
@@ -233,4 +233,4 @@ rmse - Root-mean-square deviation: 2974174.424456362
     df2 = future.predicted_mean
     print('Forecast monthly pax')
     print(df2.tail(60))
-![Figure_8.png](Pax Graph/Figure_8.png)
+![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
