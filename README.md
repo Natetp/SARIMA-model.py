@@ -192,14 +192,13 @@ No. Observations:                  132
 Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   
 Date:                              Fri, 14 Jul 2023    
 Time:                                      10:59:17   
-Sample:                                  01-01-2012   
-                                       - 12-01-2022                                         
+Sample:                                  01-01-2012 - 12-01-2022                         
 Covariance Type:                                opg                                         
 
-Log Likelihood               -1492.409  
-AIC                           2996.819  
-BIC                           3012.685  
-HQIC                          3003.247
+Log Likelihood:               -1492.409  
+AIC:                           2996.819  
+BIC:                           3012.685  
+HQIC:                          3003.247
     
 Ljung-Box (L1) (Q):                   0.22   
 Jarque-Bera (JB):                    71.83  
