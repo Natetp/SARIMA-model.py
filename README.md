@@ -1,5 +1,5 @@
 # SARIMA-model.py
-Using SARIMA Time Series Model to forecast future passenger at Long Thanh International Airport (LTIA) from 2023-2035
+Using SARIMA Time Series Model to forecast future passenger traffic at Long Thanh International Airport (LTIA) from 2023-2035
 
     import warnings
     import itertools
