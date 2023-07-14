@@ -187,31 +187,28 @@ p-value 2nd Order Differencing: 0.000000
 
 # SARIMAX Results                                       
 
-Dep. Variable:                          Monthly Pax   No. Observations:                  132\
-Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   Log Likelihood               -1492.409\
-Date:                              Fri, 14 Jul 2023   AIC                           2996.819\
-Time:                                      10:59:17   BIC                           3012.685\
-Sample:                                  01-01-2012   HQIC                          3003.247\
-                                       - 12-01-2022\                                         
-Covariance Type:                                opg\                                         
+Dep. Variable:                          Monthly Pax   
+No. Observations:                  132  
+Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   
+Date:                              Fri, 14 Jul 2023    
+Time:                                      10:59:17   
+Sample:                                  01-01-2012   
+                                       - 12-01-2022                                         
+Covariance Type:                                opg                                         
 
-                 coef    std err          z      P>|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-ar.L1          0.5357      0.085      6.303      0.000       0.369       0.702
-ar.L2         -0.9351      0.112     -8.314      0.000      -1.156      -0.715
-ma.L1         -0.4190      0.139     -3.021      0.003      -0.691      -0.147
-ma.L2          0.7789      0.199      3.910      0.000       0.388       1.169
-ma.S.L12      -0.8408      0.085     -9.948      0.000      -1.006      -0.675
-sigma2       2.67e+11   2.15e-13   1.24e+24      0.000    2.67e+11    2.67e+11
-
+Log Likelihood               -1492.409  
+AIC                           2996.819  
+BIC                           3012.685  
+HQIC                          3003.247
+    
 Ljung-Box (L1) (Q):                   0.22   
-Jarque-Bera (JB):                    71.83\
-Prob(Q):                              0.64\   
-Prob(JB):                             0.00\
-Heteroskedasticity (H):               9.59\   
-Skew:                                -0.67\
-Prob(H) (two-sided):                  0.00\   
-Kurtosis:                             6.84\
+Jarque-Bera (JB):                    71.83  
+Prob(Q):                              0.64  
+Prob(JB):                             0.00  
+Heteroskedasticity (H):               9.59  
+Skew:                                -0.67  
+Prob(H) (two-sided):                  0.00  
+Kurtosis:                             6.84  
 
 
 # Validate model accuracy
