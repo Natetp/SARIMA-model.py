@@ -22,7 +22,7 @@ LTIA pax forecast 2023-2035
     df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
     print(df.head(132))
            
-Date          Monthly Pax\           
+Date          Monthly Pax           
 2012-01-01      1614296\
 2012-02-01      1420632\
 2012-03-01      1484730\
@@ -34,7 +34,7 @@ Date          Monthly Pax\
 2022-10-01      3049318\
 2022-11-01      3001299\
 2022-12-01      3258710\
-[132 rows x 1 columns]\
+[132 rows x 1 columns]
 
 # Seasonality/ Trend
     from statsmodels.tsa.seasonal import seasonal_decompose
@@ -69,7 +69,7 @@ Date          Monthly Pax\
     print("")
 
 #H0: It is a stationary\
-#H1: It is a non-stationary\
+#H1: It is a non-stationary
 
     if result[1] > 0.05:
       print("Reject null hypothesis, take this series as non-stationery")
@@ -84,7 +84,7 @@ Date          Monthly Pax\
     print('Critical Values:')
     print("")
 
-ADF Statistic: -2.371819\
+ADF Statistic: -2.371819
 p-value: 0.149849\
 1%: -3.482920063655088 - The data is not stationary with 99% confidence\
 5%: -2.884580323367261 - The data is not stationary with 95% confidence\
@@ -93,7 +93,7 @@ p-value: 0.149849\
 Reject null hypothesis, take this series as non-stationery\
 \
 p-value 1st Order Differencing: 0.000026\
-p-value 2nd Order Differencing: 0.000000\
+p-value 2nd Order Differencing: 0.000000
 
 # Finding the value of the d parameter (I = Integrated) = 1
 # Original Series
@@ -194,7 +194,7 @@ p-value 2nd Order Differencing: 0.000000\
     
 mae - Mean Absolute Error: 2721280.2643994256\
 mape - Mean Absolute Percentage Error: 6.278220989175696\
-rmse - Root-mean-square deviation: 2974174.424456362\
+rmse - Root-mean-square deviation: 2974174.424456362
 
     print(f'mae - Mean Absolute Error: {mae}')
     print(f'mape - Mean Absolute Percentage Error: {mape}')
