@@ -217,7 +217,7 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print(y_pred.predicted_mean)
     print("")
 
-# Fure forecast (5-year)
+# Fure forecast (2023-2035)
     future = model_fit.get_forecast(steps=156, signal_only=False)
     future_ci = future.conf_int()
     ax = df['2012':].plot(label='Actual', figsize=(9, 7))
@@ -233,3 +233,4 @@ rmse - Root-mean-square deviation: 2974174.424456362
     df2 = future.predicted_mean
     print('Forecast monthly pax')
     print(df2.tail(60))
+![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax/Figure_8.png)
