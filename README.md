@@ -128,7 +128,7 @@ p-value 2nd Order Differencing: 0.000000
     fig, (ax1, ax2) = plt.subplots(2)
     plot_acf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax1)
     plot_pacf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax2)
-
+![Seasonal.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Seasonal.png)
 # Grid search (or hyperparameter optimization) for model selection
 # Define the p, d and q parameters to take any value between 0 and 2
     p = range(0, 2)
@@ -184,6 +184,32 @@ p-value 2nd Order Differencing: 0.000000
     print(model_fit.summary())
     print("")
 ![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)
+
+SARIMAX Results                                       
+============================================================================================
+Dep. Variable:                          Monthly Pax   No. Observations:                  132
+Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   Log Likelihood               -1492.409
+Date:                              Fri, 14 Jul 2023   AIC                           2996.819
+Time:                                      10:59:17   BIC                           3012.685
+Sample:                                  01-01-2012   HQIC                          3003.247
+                                       - 12-01-2022                                         
+Covariance Type:                                opg                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1          0.5357      0.085      6.303      0.000       0.369       0.702
+ar.L2         -0.9351      0.112     -8.314      0.000      -1.156      -0.715
+ma.L1         -0.4190      0.139     -3.021      0.003      -0.691      -0.147
+ma.L2          0.7789      0.199      3.910      0.000       0.388       1.169
+ma.S.L12      -0.8408      0.085     -9.948      0.000      -1.006      -0.675
+sigma2       2.67e+11   2.15e-13   1.24e+24      0.000    2.67e+11    2.67e+11
+===================================================================================
+Ljung-Box (L1) (Q):                   0.22   Jarque-Bera (JB):                71.83
+Prob(Q):                              0.64   Prob(JB):                         0.00
+Heteroskedasticity (H):               9.59   Skew:                            -0.67
+Prob(H) (two-sided):                  0.00   Kurtosis:                         6.84
+===================================================================================
+
 # Validate model accuracy
     forecast_test = model_fit.forecast(len(df))
     mae = mean_absolute_error(df, forecast_test)
@@ -232,3 +258,7 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print('Forecast monthly pax')
     print(df2.tail(60))
 ![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
+![Totalpax_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Totalpax_graph.png)
+![Intl_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Intl_graph.png)
+
+
