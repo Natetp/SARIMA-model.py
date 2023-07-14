@@ -1,102 +1,102 @@
 # SARIMA-model.py
 LTIA pax forecast 2023-2035
 
-import warnings
-import itertools
-import pandas as pd
-import numpy as np
-import sklearn
-import statsmodels.api as sm
-import matplotlib.pyplot as plt
-from statsmodels.tsa.arima.model import ARIMA
-from statsmodels.graphics.tsaplots import plot_predict
-from statsmodels.tsa.statespace.sarimax import SARIMAX
-from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
-from pmdarima.arima import auto_arima
-warnings.filterwarnings("ignore") # specify to ignore warning messages
-plt.rcParams.update({'figure.figsize':(9,7), 'figure.dpi':120})
+    import warnings
+    import itertools
+    import pandas as pd
+    import numpy as np
+    import sklearn
+    import statsmodels.api as sm
+    import matplotlib.pyplot as plt
+    from statsmodels.tsa.arima.model import ARIMA
+    from statsmodels.graphics.tsaplots import plot_predict
+    from statsmodels.tsa.statespace.sarimax import SARIMAX
+    from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
+    from pmdarima.arima import auto_arima
+    warnings.filterwarnings("ignore") # specify to ignore warning messages
+    plt.rcParams.update({'figure.figsize':(9,7), 'figure.dpi':120})
 
-excel_file = "D:\CBKT LTIA\Ban CBKT CHKQT Long Thanh\Data analyst\LTIA Forecast - SARIMA\SGN_LTIA_forecastpax.xlsx"
-df = pd.read_excel(excel_file, index_col=0)
-df = df.asfreq('MS')
-df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
-print(df.head(132))
+    excel_file = "D:\CBKT LTIA\Ban CBKT CHKQT Long Thanh\Data analyst\LTIA Forecast - SARIMA\SGN_LTIA_forecastpax.xlsx"
+    df = pd.read_excel(excel_file, index_col=0)
+    df = df.asfreq('MS')
+    df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
+    print(df.head(132))
 
 # Seasonality/ Trend
-from statsmodels.tsa.seasonal import seasonal_decompose
-decompose_data = seasonal_decompose(df['Monthly Pax'], model='additive')
-decompose_data.plot()
+    from statsmodels.tsa.seasonal import seasonal_decompose
+    decompose_data = seasonal_decompose(df['Monthly Pax'], model='additive')
+    decompose_data.plot()
 
 # Split train-test set manually
-train_size = int(len(df['Monthly Pax']) * 0.55)
-train_data, test_data = df['Monthly Pax'][:train_size + 1], df['Monthly Pax'][train_size:]
-print("Train data")
-print(train_data)
-print("Test data")
-print(test_data)
-print("")
+    train_size = int(len(df['Monthly Pax']) * 0.55)
+    train_data, test_data = df['Monthly Pax'][:train_size + 1], df['Monthly Pax'][train_size:]
+    print("Train data")
+    print(train_data)
+    print("Test data")
+    print(test_data)
+    print("")
 
 # Plot train-test using matplotlib.pyplot
-plt.figure(figsize=(10,6))
-plt.grid(True)
-plt.xlabel('Dates')
-plt.ylabel('Monthly Pax')
-plt.plot(train_data, 'green', label='Train data')
-plt.plot(test_data, 'blue', label='Test data')
-plt.legend()
+    plt.figure(figsize=(10,6))
+    plt.grid(True)
+    plt.xlabel('Dates')
+    plt.ylabel('Monthly Pax')
+    plt.plot(train_data, 'green', label='Train data')
+    plt.plot(test_data, 'blue', label='Test data')
+    plt.legend()
 
 # Augmented Dickey-Fuller test aims to reject the null hypothesis that the given time-series data is non-stationary
-from statsmodels.tsa.stattools import adfuller
-result = adfuller(df['Monthly Pax'].dropna())
-print('ADF Statistic: %f' % result[0])
-print('p-value: %f' % result[1])
-for key, value in result[4].items():
-    print("\t{}: {} - The data is {} stationary with {}% confidence".format(key, value, "not" if value < result[0] else "",100 - int(key[:-1])))
-print("")
+    from statsmodels.tsa.stattools import adfuller
+    result = adfuller(df['Monthly Pax'].dropna())
+    print('ADF Statistic: %f' % result[0])
+    print('p-value: %f' % result[1])
+    for key, value in result[4].items():
+        print("\t{}: {} - The data is {} stationary with {}% confidence".format(key, value, "not" if value < result[0] else "",100 - int(key[:-1])))
+    print("")
 
 #H0: It is a stationary
 #H1: It is a non-stationary
 
-if result[1] > 0.05:
-  print("Reject null hypothesis, take this series as non-stationery")
-else:
-  print("Accept null hypothesis, take this series as stationary")
+    if result[1] > 0.05:
+      print("Reject null hypothesis, take this series as non-stationery")
+    else:
+      print("Accept null hypothesis, take this series as stationary")
 
-print("")
-result = adfuller(df['Monthly Pax'].diff().dropna())
-print('p-value 1st Order Differencing: %f' % result[1])
-result = adfuller(df['Monthly Pax'].diff().diff().dropna())
-print('p-value 2nd Order Differencing: %f' % result[1])
-print('Critical Values:')
-print("")
+    print("")
+    result = adfuller(df['Monthly Pax'].diff().dropna())
+    print('p-value 1st Order Differencing: %f' % result[1])
+    result = adfuller(df['Monthly Pax'].diff().diff().dropna())
+    print('p-value 2nd Order Differencing: %f' % result[1])
+    print('Critical Values:')
+    print("")
 
 # Finding the value of the d parameter (I = Integrated) = 1
 # Original Series
-fig, (ax1, ax2, ax3) = plt.subplots(3)
-ax1.plot(df['Monthly Pax']);
-ax1.set_title('Original Series');
-ax1.axes.xaxis.set_visible(False)
+    fig, (ax1, ax2, ax3) = plt.subplots(3)
+    ax1.plot(df['Monthly Pax']);
+    ax1.set_title('Original Series');
+    ax1.axes.xaxis.set_visible(False)
 # 1st Differencing
-ax2.plot(df['Monthly Pax'].diff());
-ax2.set_title('1st Order Differencing');
-ax2.axes.xaxis.set_visible(False)
+    ax2.plot(df['Monthly Pax'].diff());
+    ax2.set_title('1st Order Differencing');
+    ax2.axes.xaxis.set_visible(False)
 # 2nd Differencing
-ax3.plot(df['Monthly Pax'].diff().diff());
-ax3.set_title('2nd Order Differencing');
-ax3.axes.xaxis.set_visible(False)
+    ax3.plot(df['Monthly Pax'].diff().diff());
+    ax3.set_title('2nd Order Differencing');
+    ax3.axes.xaxis.set_visible(False)
 
 # Differencing Auto-correlation
-from statsmodels.graphics.tsaplots import plot_acf
-fig, (ax1, ax2, ax3) = plt.subplots(3)
-plot_acf(df['Monthly Pax'], ax=ax1)
-plot_acf(df['Monthly Pax'].diff().dropna(), ax=ax2)
-plot_acf(df['Monthly Pax'].diff().diff().dropna(), ax=ax3)
+    from statsmodels.graphics.tsaplots import plot_acf
+    fig, (ax1, ax2, ax3) = plt.subplots(3)
+    plot_acf(df['Monthly Pax'], ax=ax1)
+    plot_acf(df['Monthly Pax'].diff().dropna(), ax=ax2)
+    plot_acf(df['Monthly Pax'].diff().diff().dropna(), ax=ax3)
 
 # PACF (p) and ACF (q) Plot
-from statsmodels.graphics.tsaplots import plot_pacf
-fig, (ax1, ax2) = plt.subplots(2)
-plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
-plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
+    from statsmodels.graphics.tsaplots import plot_pacf
+    fig, (ax1, ax2) = plt.subplots(2)
+    plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
+    plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
 
 # Seasonal PACF (P) and ACF (Q) Plot
     from statsmodels.graphics.tsaplots import plot_pacf
@@ -167,42 +167,42 @@ plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
     mape = mean_absolute_percentage_error(df, forecast_test)
     rmse = np.sqrt(mean_squared_error(df, forecast_test))
 
-print(f'mae - Mean Absolute Error: {mae}')
-print(f'mape - Mean Absolute Percentage Error: {mape}')
-print(f'rmse - Root-mean-square deviation: {rmse}')
-print("")
+    print(f'mae - Mean Absolute Error: {mae}')
+    print(f'mape - Mean Absolute Percentage Error: {mape}')
+    print(f'rmse - Root-mean-square deviation: {rmse}')
+    print("")
 
-#y_pred = model_fit.get_prediction(start=test_data.index[0], end=test_data.index[-1], dynamic=False)
-y_pred = model_fit.get_prediction(start=pd.to_datetime('2018-01-01'), end=pd.to_datetime('2022-12-01'), dynamic=False)
-pred_ci = y_pred.conf_int()
-ax = df['2012':].plot(label='Actual')
-y_pred.predicted_mean.plot(ax=ax, label='One-step ahead', alpha=.5)
-ax.fill_between(pred_ci.index,
+    #y_pred = model_fit.get_prediction(start=test_data.index[0], end=test_data.index[-1], dynamic=False)
+    y_pred = model_fit.get_prediction(start=pd.to_datetime('2018-01-01'), end=pd.to_datetime('2022-12-01'), dynamic=False)
+    pred_ci = y_pred.conf_int()
+    ax = df['2012':].plot(label='Actual')
+    y_pred.predicted_mean.plot(ax=ax, label='One-step ahead', alpha=.5)
+    ax.fill_between(pred_ci.index,
                 pred_ci.iloc[:, 0],
                 pred_ci.iloc[:, 1], color='k', alpha=.2)
 
-ax.set_xlabel('Date')
-ax.set_ylabel('Pax')
-plt.title('Testing HCM area Pax traffic forecast')
-plt.legend()
-print(y_pred.predicted_mean)
-print("")
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Pax')
+    plt.title('Testing HCM area Pax traffic forecast')
+    plt.legend()
+    print(y_pred.predicted_mean)
+    print("")
 
 #Fure forecast (5-year)
-future = model_fit.get_forecast(steps=156, signal_only=False)
-future_ci = future.conf_int()
+    future = model_fit.get_forecast(steps=156, signal_only=False)
+    future_ci = future.conf_int()
 
-ax = df['2012':].plot(label='Actual', figsize=(9, 7))
-future.predicted_mean.plot(ax=ax, label='Forecasted value')
-ax.fill_between(future_ci.index,
+    ax = df['2012':].plot(label='Actual', figsize=(9, 7))
+    future.predicted_mean.plot(ax=ax, label='Forecasted value')
+    ax.fill_between(future_ci.index,
                 future_ci.iloc[:, 0],
                 future_ci.iloc[:, 1], color='k', alpha=.2)
 
-ax.set_xlabel('Date')
-ax.set_ylabel('Pax')
-plt.title('5-year HCM area Pax traffic forecast')
-plt.legend()
-plt.show()
-df2 = future.predicted_mean
-print('Forecast monthly pax')
-print(df2.tail(60))
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Pax')
+    plt.title('5-year HCM area Pax traffic forecast')
+    plt.legend()
+    plt.show()
+    df2 = future.predicted_mean
+    print('Forecast monthly pax')
+    print(df2.tail(60))
