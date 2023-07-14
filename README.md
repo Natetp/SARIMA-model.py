@@ -22,18 +22,18 @@ LTIA pax forecast 2023-2035
     df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
     print(df.head(132))
            
-Date      __      Monthly Pax           
-2012-01-01__        1614296\
-2012-02-01__        1420632\
-2012-03-01__        1484730\
-2012-04-01__        1380141\
-2012-05-01__        1321895\
+Date           Monthly Pax           
+2012-01-01        1614296\
+2012-02-01        1420632\
+2012-03-01        1484730\
+2012-04-01        1380141\
+2012-05-01        1321895\
 ...                 ...\
-2022-08-01__        3453091\
-2022-09-01__        2988763\
-2022-10-01__        3049318\
-2022-11-01__        3001299\
-2022-12-01__        3258710\
+2022-08-01        3453091\
+2022-09-01        2988763\
+2022-10-01        3049318\
+2022-11-01        3001299\
+2022-12-01        3258710\
 [132 rows x 1 columns]
 
 # Seasonality/ Trend
@@ -217,7 +217,7 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print(y_pred.predicted_mean)
     print("")
 
-#Fure forecast (5-year)
+# Fure forecast (5-year)
     future = model_fit.get_forecast(steps=156, signal_only=False)
     future_ci = future.conf_int()
     ax = df['2012':].plot(label='Actual', figsize=(9, 7))
@@ -225,7 +225,6 @@ rmse - Root-mean-square deviation: 2974174.424456362
     ax.fill_between(future_ci.index,
                 future_ci.iloc[:, 0],
                 future_ci.iloc[:, 1], color='k', alpha=.2)
-
     ax.set_xlabel('Date')
     ax.set_ylabel('Pax')
     plt.title('5-year HCM area Pax traffic forecast')
