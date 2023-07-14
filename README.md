@@ -49,7 +49,7 @@ Date           Monthly Pax
     print("Test data")
     print(test_data)
     print("")
-![Figure_2.png](
+![train data.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/train%20data.png)
 # Plot train-test using matplotlib.pyplot
     plt.figure(figsize=(10,6))
     plt.grid(True)
