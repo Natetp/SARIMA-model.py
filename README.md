@@ -22,19 +22,19 @@ LTIA pax forecast 2023-2035
     df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
     print(df.head(132))
            
-Date          Monthly Pax           
-2012-01-01      1614296
-2012-02-01      1420632
-2012-03-01      1484730
-2012-04-01      1380141
-2012-05-01      1321895
-...                 ...
-2022-08-01      3453091
-2022-09-01      2988763
-2022-10-01      3049318
-2022-11-01      3001299
-2022-12-01      3258710
-[132 rows x 1 columns]
+Date          Monthly Pax\           
+2012-01-01      1614296\
+2012-02-01      1420632\
+2012-03-01      1484730\
+2012-04-01      1380141\
+2012-05-01      1321895\
+...                 ...\
+2022-08-01      3453091\
+2022-09-01      2988763\
+2022-10-01      3049318\
+2022-11-01      3001299\
+2022-12-01      3258710\
+[132 rows x 1 columns]\
 
 # Seasonality/ Trend
     from statsmodels.tsa.seasonal import seasonal_decompose
@@ -68,8 +68,8 @@ Date          Monthly Pax
         print("\t{}: {} - The data is {} stationary with {}% confidence".format(key, value, "not" if value < result[0] else "",100 - int(key[:-1])))
     print("")
 
-#H0: It is a stationary
-#H1: It is a non-stationary
+#H0: It is a stationary\
+#H1: It is a non-stationary\
 
     if result[1] > 0.05:
       print("Reject null hypothesis, take this series as non-stationery")
@@ -84,16 +84,16 @@ Date          Monthly Pax
     print('Critical Values:')
     print("")
 
-ADF Statistic: -2.371819
-p-value: 0.149849
-1%: -3.482920063655088 - The data is not stationary with 99% confidence
-5%: -2.884580323367261 - The data is not stationary with 95% confidence
-10%: -2.5790575441750883 - The data is not stationary with 90% confidence
-
-Reject null hypothesis, take this series as non-stationery
-
-p-value 1st Order Differencing: 0.000026
-p-value 2nd Order Differencing: 0.000000
+ADF Statistic: -2.371819\
+p-value: 0.149849\
+1%: -3.482920063655088 - The data is not stationary with 99% confidence\
+5%: -2.884580323367261 - The data is not stationary with 95% confidence\
+10%: -2.5790575441750883 - The data is not stationary with 90% confidence\
+\
+Reject null hypothesis, take this series as non-stationery\
+\
+p-value 1st Order Differencing: 0.000026\
+p-value 2nd Order Differencing: 0.000000\
 
 # Finding the value of the d parameter (I = Integrated) = 1
 # Original Series
@@ -192,9 +192,9 @@ p-value 2nd Order Differencing: 0.000000
     mape = mean_absolute_percentage_error(df, forecast_test)
     rmse = np.sqrt(mean_squared_error(df, forecast_test))
     
-mae - Mean Absolute Error: 2721280.2643994256
-mape - Mean Absolute Percentage Error: 6.278220989175696
-rmse - Root-mean-square deviation: 2974174.424456362
+mae - Mean Absolute Error: 2721280.2643994256\
+mape - Mean Absolute Percentage Error: 6.278220989175696\
+rmse - Root-mean-square deviation: 2974174.424456362\
 
     print(f'mae - Mean Absolute Error: {mae}')
     print(f'mape - Mean Absolute Percentage Error: {mape}')
