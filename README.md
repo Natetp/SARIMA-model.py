@@ -258,10 +258,10 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print('Forecast monthly pax')
     print(df2.tail(60))
 ![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
-
+# Total pax forecast
 ![Totalpax_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Totalpax_graph.png)
-Total pax forecast
+# International pax forecast
 ![Intl_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Intl_graph.png)
-International pax forecast
+
 
 
