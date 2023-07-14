@@ -109,20 +109,20 @@ p-value 2nd Order Differencing: 0.000000
     ax3.plot(df['Monthly Pax'].diff().diff());
     ax3.set_title('2nd Order Differencing');
     ax3.axes.xaxis.set_visible(False)
-
+![Figure_3.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_3.png)
 # Differencing Auto-correlation
     from statsmodels.graphics.tsaplots import plot_acf
     fig, (ax1, ax2, ax3) = plt.subplots(3)
     plot_acf(df['Monthly Pax'], ax=ax1)
     plot_acf(df['Monthly Pax'].diff().dropna(), ax=ax2)
     plot_acf(df['Monthly Pax'].diff().diff().dropna(), ax=ax3)
-
+![Figure_4.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_4.png)
 # PACF (p) and ACF (q) Plot
     from statsmodels.graphics.tsaplots import plot_pacf
     fig, (ax1, ax2) = plt.subplots(2)
     plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
     plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
-
+![Figure_5.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_5.png)
 # Seasonal PACF (P) and ACF (Q) Plot
     from statsmodels.graphics.tsaplots import plot_pacf
     fig, (ax1, ax2) = plt.subplots(2)
@@ -155,8 +155,6 @@ p-value 2nd Order Differencing: 0.000000
             print('SARIMA{}x{}12 - AIC:{} - MAPE:{}'.format(param, param_seasonal, mod_fit.aic,mape))
             except:
                 continue
-# summarize result
-
     print("")
 
 # Auto ARIMA
