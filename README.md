@@ -175,7 +175,7 @@ p-value 2nd Order Differencing: 0.000000
     print(autoarima.summary())
     print("")
 
-#Building SARIMA(p,d,q) = (2,1,2) (0,1,1,12) AIC =
+# Building SARIMA(p,d,q)(P,D,Q,L) = (2,1,2)(0,1,1,12)
     model = SARIMAX(df,order=(2, 1, 2),
                 seasonal_order=(0, 1, 1, 12),
                 enforce_stationarity=False,
