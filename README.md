@@ -125,6 +125,7 @@ p-value 2nd Order Differencing: 0.000000
 
 # PACF (p) and ACF (q) Plot
 ![Figure_5.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_5.png)
+
     from statsmodels.graphics.tsaplots import plot_pacf
     fig, (ax1, ax2) = plt.subplots(2)
     plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
@@ -175,7 +176,8 @@ p-value 2nd Order Differencing: 0.000000
     print("")
 
 # Building SARIMA(p,d,q)(P,D,Q,L) = (2,1,2)(0,1,1,12)
-![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)    
+![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)  
+
     model = SARIMAX(df,order=(2, 1, 2),
                 seasonal_order=(0, 1, 1, 12),
                 enforce_stationarity=False,
@@ -246,6 +248,7 @@ rmse - Root-mean-square deviation: 2974174.424456362
 
 # Fure forecast (2023-2035)
 ![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
+
     future = model_fit.get_forecast(steps=156, signal_only=False)
     future_ci = future.conf_int()
     ax = df['2012':].plot(label='Actual', figsize=(9, 7))
