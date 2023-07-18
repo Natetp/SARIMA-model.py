@@ -38,6 +38,7 @@ Date           Monthly Pax
 
 # Seasonality/ Trend
 ![Figure_1.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_1.png)
+
     from statsmodels.tsa.seasonal import seasonal_decompose
     decompose_data = seasonal_decompose(df['Monthly Pax'], model='additive')
     decompose_data.plot()
