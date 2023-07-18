@@ -37,10 +37,11 @@ Date           Monthly Pax
 [132 rows x 1 columns]
 
 # Seasonality/ Trend
+![Figure_1.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_1.png)
     from statsmodels.tsa.seasonal import seasonal_decompose
     decompose_data = seasonal_decompose(df['Monthly Pax'], model='additive')
     decompose_data.plot()
-![Figure_1.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_1.png)
+
 # Split train-test set manually
     train_size = int(len(df['Monthly Pax']) * 0.55)
     train_data, test_data = df['Monthly Pax'][:train_size + 1], df['Monthly Pax'][train_size:]
@@ -49,7 +50,9 @@ Date           Monthly Pax
     print("Test data")
     print(test_data)
     print("")
+    
 # Plot train-test using matplotlib.pyplot
+![train data.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/train%20data.png)
     plt.figure(figsize=(10,6))
     plt.grid(True)
     plt.xlabel('Dates')
@@ -57,7 +60,7 @@ Date           Monthly Pax
     plt.plot(train_data, 'green', label='Train data')
     plt.plot(test_data, 'blue', label='Test data')
     plt.legend()
-![train data.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/train%20data.png)
+
 # Augmented Dickey-Fuller test aims to reject the null hypothesis that the given time-series data is non-stationary
     from statsmodels.tsa.stattools import adfuller
     result = adfuller(df['Monthly Pax'].dropna())
@@ -95,6 +98,7 @@ p-value 1st Order Differencing: 0.000026\
 p-value 2nd Order Differencing: 0.000000
 
 # Finding the value of the d parameter (I = Integrated) = 1
+![Figure_3.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_3.png)
 # Original Series
     fig, (ax1, ax2, ax3) = plt.subplots(3)
     ax1.plot(df['Monthly Pax']);
@@ -108,26 +112,22 @@ p-value 2nd Order Differencing: 0.000000
     ax3.plot(df['Monthly Pax'].diff().diff());
     ax3.set_title('2nd Order Differencing');
     ax3.axes.xaxis.set_visible(False)
-![Figure_3.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_3.png)
+
 # Differencing Auto-correlation
+![Figure_4.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_4.png)   
     from statsmodels.graphics.tsaplots import plot_acf
     fig, (ax1, ax2, ax3) = plt.subplots(3)
     plot_acf(df['Monthly Pax'], ax=ax1)
     plot_acf(df['Monthly Pax'].diff().dropna(), ax=ax2)
     plot_acf(df['Monthly Pax'].diff().diff().dropna(), ax=ax3)
-![Figure_4.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_4.png)
+
 # PACF (p) and ACF (q) Plot
+![Figure_5.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_5.png)
     from statsmodels.graphics.tsaplots import plot_pacf
     fig, (ax1, ax2) = plt.subplots(2)
     plot_acf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax1)
     plot_pacf(df['Monthly Pax'].diff().dropna(),lags=24, ax=ax2)
-![Figure_5.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_5.png)
-# Seasonal PACF (P) and ACF (Q) Plot
-    from statsmodels.graphics.tsaplots import plot_pacf
-    fig, (ax1, ax2) = plt.subplots(2)
-    plot_acf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax1)
-    plot_pacf(df['Monthly Pax'].diff(periods=12).dropna(),lags=24, ax=ax2)
-![Seasonal.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Seasonal.png)
+
 # Grid search (or hyperparameter optimization) for model selection
 # Define the p, d and q parameters to take any value between 0 and 2
     p = range(0, 2)
@@ -173,6 +173,7 @@ p-value 2nd Order Differencing: 0.000000
     print("")
 
 # Building SARIMA(p,d,q)(P,D,Q,L) = (2,1,2)(0,1,1,12)
+![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)    
     model = SARIMAX(df,order=(2, 1, 2),
                 seasonal_order=(0, 1, 1, 12),
                 enforce_stationarity=False,
@@ -182,7 +183,6 @@ p-value 2nd Order Differencing: 0.000000
     model_fit.plot_diagnostics(figsize=(15, 12))
     print(model_fit.summary())
     print("")
-![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)
 
 # SARIMAX Results                                       
 
@@ -223,6 +223,8 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print(f'mape - Mean Absolute Percentage Error: {mape}')
     print(f'rmse - Root-mean-square deviation: {rmse}')
     print("")
+    
+![Figure_7.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_7.png)
 
     #y_pred = model_fit.get_prediction(start=test_data.index[0], end=test_data.index[-1], dynamic=False)
     y_pred = model_fit.get_prediction(start=pd.to_datetime('2018-01-01'), end=pd.to_datetime('2022-12-01'), dynamic=False)
@@ -239,8 +241,9 @@ rmse - Root-mean-square deviation: 2974174.424456362
     plt.legend()
     print(y_pred.predicted_mean)
     print("")
-![Figure_7.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_7.png)
+
 # Fure forecast (2023-2035)
+![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
     future = model_fit.get_forecast(steps=156, signal_only=False)
     future_ci = future.conf_int()
     ax = df['2012':].plot(label='Actual', figsize=(9, 7))
@@ -256,9 +259,10 @@ rmse - Root-mean-square deviation: 2974174.424456362
     df2 = future.predicted_mean
     print('Forecast monthly pax')
     print(df2.tail(60))
-![Figure_8.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_8.png)
+
 # Total pax forecast
 ![Totalpax_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Totalpax_graph.png)
+
 # International pax forecast
 ![Intl_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Intl_graph.png)
 
