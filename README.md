@@ -98,7 +98,7 @@ Reject null hypothesis, take this series as non-stationery\
 p-value 1st Order Differencing: 0.000026\
 p-value 2nd Order Differencing: 0.000000
 
-# Finding the value of the d parameter (I = Integrated) = 1
+# Finding the value of the d parameter (I = Integrated)
 ![Figure_3.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_3.png)
 # Original Series
     fig, (ax1, ax2, ax3) = plt.subplots(3)
@@ -115,7 +115,8 @@ p-value 2nd Order Differencing: 0.000000
     ax3.axes.xaxis.set_visible(False)
 
 # Differencing Auto-correlation
-![Figure_4.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_4.png)   
+![Figure_4.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_4.png)
+
     from statsmodels.graphics.tsaplots import plot_acf
     fig, (ax1, ax2, ax3) = plt.subplots(3)
     plot_acf(df['Monthly Pax'], ax=ax1)
