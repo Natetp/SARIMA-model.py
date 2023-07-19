@@ -176,6 +176,45 @@ p-value 2nd Order Differencing: 0.000000
     print(autoarima.summary())
     print("")
 
+Performing stepwise search to minimize aic
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=3489.431, Time=0.03 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=3447.216, Time=0.09 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=3436.490, Time=0.09 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=3485.024, Time=0.03 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=3435.357, Time=0.13 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=3448.392, Time=0.08 sec
+ ARIMA(0,1,1)(2,1,1)[12]             : AIC=3436.202, Time=0.35 sec
+ ARIMA(0,1,1)(1,1,2)[12]             : AIC=3436.672, Time=0.50 sec
+ ARIMA(0,1,1)(0,1,2)[12]             : AIC=3434.694, Time=0.30 sec
+ ARIMA(0,1,1)(0,1,3)[12]             : AIC=3436.658, Time=0.49 sec
+ ARIMA(0,1,1)(1,1,3)[12]             : AIC=3438.494, Time=0.93 sec
+ ARIMA(0,1,0)(0,1,2)[12]             : AIC=3496.638, Time=0.17 sec
+ ARIMA(1,1,1)(0,1,2)[12]             : AIC=3435.863, Time=0.42 sec
+ ARIMA(0,1,2)(0,1,2)[12]             : AIC=3436.528, Time=0.34 sec
+ ARIMA(1,1,0)(0,1,2)[12]             : AIC=3432.601, Time=0.25 sec
+ ARIMA(1,1,0)(0,1,1)[12]             : AIC=3434.795, Time=0.07 sec
+ ARIMA(1,1,0)(1,1,2)[12]             : AIC=3434.585, Time=0.44 sec
+ ARIMA(1,1,0)(0,1,3)[12]             : AIC=3434.574, Time=0.41 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=3433.302, Time=0.11 sec
+ ARIMA(1,1,0)(1,1,3)[12]             : AIC=3436.411, Time=0.86 sec
+ ARIMA(2,1,0)(0,1,2)[12]             : AIC=3426.541, Time=0.32 sec
+ ARIMA(2,1,0)(0,1,1)[12]             : AIC=3427.725, Time=0.11 sec
+ ARIMA(2,1,0)(1,1,2)[12]             : AIC=3428.414, Time=0.54 sec
+ ARIMA(2,1,0)(0,1,3)[12]             : AIC=3428.310, Time=0.53 sec
+ ARIMA(2,1,0)(1,1,1)[12]             : AIC=3427.276, Time=0.15 sec
+ ARIMA(2,1,0)(1,1,3)[12]             : AIC=3430.036, Time=0.83 sec
+ ARIMA(3,1,0)(0,1,2)[12]             : AIC=3424.209, Time=0.38 sec
+ ARIMA(3,1,0)(0,1,1)[12]             : AIC=3424.779, Time=0.13 sec
+ ARIMA(3,1,0)(1,1,2)[12]             : AIC=3426.072, Time=0.81 sec
+ ARIMA(3,1,0)(0,1,3)[12]             : AIC=3425.948, Time=0.68 sec
+ ARIMA(3,1,0)(1,1,1)[12]             : AIC=3424.791, Time=0.18 sec
+ ARIMA(3,1,0)(1,1,3)[12]             : AIC=3427.696, Time=1.13 sec
+ ARIMA(4,1,0)(0,1,2)[12]             : AIC=3420.177, Time=0.45 sec
+ ARIMA(4,1,0)(0,1,1)[12]             : AIC=3420.334, Time=0.14 sec
+ ARIMA(4,1,0)(1,1,2)[12]             : AIC=3422.106, Time=0.72 sec
+ ARIMA(4,1,0)(0,1,3)[12]             : AIC=3422.049, Time=0.74 sec
+ ...
+
 # Building SARIMA(p,d,q)(P,D,Q,L) = (2,1,2)(0,1,1,12)
 ![Figure_6.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_6.png)  
 
