@@ -177,7 +177,7 @@ p-value 2nd Order Differencing: 0.000000
     print("")
 
 Performing stepwise search to minimize aic
- ARIMA(0,1,0)(0,1,0)[12]             : AIC=3489.431, Time=0.03 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=3489.431, Time=0.03 sec\
  ARIMA(1,1,0)(1,1,0)[12]             : AIC=3447.216, Time=0.09 sec
  ARIMA(0,1,1)(0,1,1)[12]             : AIC=3436.490, Time=0.09 sec
  ARIMA(0,1,1)(0,1,0)[12]             : AIC=3485.024, Time=0.03 sec
@@ -212,7 +212,7 @@ Performing stepwise search to minimize aic
  ARIMA(4,1,0)(0,1,2)[12]             : AIC=3420.177, Time=0.45 sec
  ARIMA(4,1,0)(0,1,1)[12]             : AIC=3420.334, Time=0.14 sec
  ARIMA(4,1,0)(1,1,2)[12]             : AIC=3422.106, Time=0.72 sec
- ARIMA(4,1,0)(0,1,3)[12]             : AIC=3422.049, Time=0.74 sec
+ ARIMA(4,1,0)(0,1,3)[12]             : AIC=3422.049, Time=0.74 sec\
  ...
 
 # Building SARIMA(p,d,q)(P,D,Q,L) = (2,1,2)(0,1,1,12)
