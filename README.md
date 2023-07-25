@@ -76,7 +76,7 @@ Date           Monthly Pax
 #H1: It is a non-stationary
 
     if result[1] > 0.05:
-      print("Reject null hypothesis, take this series as non-stationery")
+      print("Reject null hypothesis, take this series as non-stationary")
     else:
       print("Accept null hypothesis, take this series as stationary")
 
@@ -94,7 +94,7 @@ p-value: 0.149849\
 5%: -2.884580323367261 - The data is not stationary with 95% confidence\
 10%: -2.5790575441750883 - The data is not stationary with 90% confidence\
 \
-Reject null hypothesis, take this series as non-stationery\
+Reject null hypothesis, take this series as non-stationary\
 \
 p-value 1st Order Differencing: 0.000026\
 p-value 2nd Order Differencing: 0.000000
