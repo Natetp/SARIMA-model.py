@@ -119,15 +119,20 @@ p-value 2nd Order Differencing: 0.000000
 ![Figure_3.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_3.png)
 
 Original Series
+
     fig, (ax1, ax2, ax3) = plt.subplots(3)
     ax1.plot(df['Monthly Pax']);
     ax1.set_title('Original Series');
     ax1.axes.xaxis.set_visible(False)
+    
 1st Differencing
+
     ax2.plot(df['Monthly Pax'].diff());
     ax2.set_title('1st Order Differencing');
     ax2.axes.xaxis.set_visible(False)
+    
 2nd Differencing
+
     ax3.plot(df['Monthly Pax'].diff().diff());
     ax3.set_title('2nd Order Differencing');
     ax3.axes.xaxis.set_visible(False)
@@ -153,6 +158,7 @@ The p-value of 1st Order Differencing is 0.000026, which is less than 0.05. Thus
 
 # Grid search (or hyperparameter optimization) for model selection
 Define the p, d and q parameters to take any value between 0 and 2
+
     p = range(0, 2)
     d = range(0, 2)
     q = range(0, 2)
