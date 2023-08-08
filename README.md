@@ -46,6 +46,7 @@ Monthly passenger data at SGN airport from 2012 to 2022 is used as input to trai
 | 2022-10-01 | 3,049,318 |
 | 2022-11-01 | 3,001,299 |
 | 2022-12-01 | 3,258,710 |
+\
 [132 rows x 1 columns]
 
 # Seasonality/ Trend
@@ -337,6 +338,7 @@ rmse - Root-mean-square deviation: 2049002.3282535903
 | 2035-10-01 | 7.141748e+06 |
 | 2035-11-01 | 7.232346e+06 |
 | 2035-12-01 | 7.409532e+06 |
+\
 Freq: MS, Name: predicted_mean, dtype: float64\
 
 Process finished with exit code 0
@@ -354,5 +356,6 @@ Process finished with exit code 0
 | 2023-06-01 | 3,401,006 | 3,684,908 | 7.70% |
 
 # Conclusion
+Passenger traffic in Ho Chi Minh City area will be expected to recover in late 2023 and 2024 at the latest, and continue to grow steadily at a compound annual growth rate of 6.76% over the five-year period from 2023 to 2027.
 As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
 
