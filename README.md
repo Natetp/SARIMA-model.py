@@ -8,6 +8,7 @@ The SARIMA model combines autoregressive (AR) and moving average (MA) components
 
 The introduction of seasonality involves an additional set of AR, MA, and differencing terms, allowing the model to account for recurring patterns over specific time intervals (e.g., daily, weekly, or monthly). This is especially pertinent for airport passenger traffic, which often exhibits consistent high and low seasons throughout the year due to factors such as holidays, vacation periods, and local events. By capturing both the seasonal variations and underlying trends, the SARIMA model ensures more accurate and reliable predictions.
 
+# Modules
     import warnings
     import itertools
     import pandas as pd
@@ -23,6 +24,7 @@ The introduction of seasonality involves an additional set of AR, MA, and differ
     warnings.filterwarnings("ignore") # specify to ignore warning messages
     plt.rcParams.update({'figure.figsize':(9,7), 'figure.dpi':120})
 
+# Dataset
     excel_file = "SGN_LTIA_forecastpax.xlsx"
     df = pd.read_excel(excel_file, index_col=0)
     df = df.asfreq('MS')
