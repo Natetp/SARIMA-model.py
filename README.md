@@ -258,19 +258,19 @@ Kurtosis:                             6.84
 
 
 # Validate model accuracy
-    forecast_test = model_fit.forecast(len(df))
-    mae = mean_absolute_error(df, forecast_test)
-    mape = mean_absolute_percentage_error(df, forecast_test)
-    rmse = np.sqrt(mean_squared_error(df, forecast_test))
-    
-mae - Mean Absolute Error: 2721280.2643994256\
-mape - Mean Absolute Percentage Error: 6.278220989175696\
-rmse - Root-mean-square deviation: 2974174.424456362
+    forecast_test = model_fit.forecast(len(test_data))
+    mae = mean_absolute_error(test_data, forecast_test)
+    mape = mean_absolute_percentage_error(test_data, forecast_test)
+    rmse = np.sqrt(mean_squared_error(test_data, forecast_test))
 
     print(f'mae - Mean Absolute Error: {mae}')
     print(f'mape - Mean Absolute Percentage Error: {mape}')
     print(f'rmse - Root-mean-square deviation: {rmse}')
     print("")
+
+mae - Mean Absolute Error: 1756864.940118484\
+mape - Mean Absolute Percentage Error: 13.598499090494714\
+rmse - Root-mean-square deviation: 2049002.3282535903
     
 ![Figure_7.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Figure_7.png)
 
