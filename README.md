@@ -1,5 +1,4 @@
-# SARIMA-model.py
-Using SARIMA Time Series Model to forecast future passenger traffic at Long Thanh International Airport (LTIA) Phase 1 from 2023-2035
+# Using SARIMA Time Series Model to forecast future passenger traffic at Long Thanh International Airport (LTIA) Phase 1 from 2023-2035
 
 Long Thanh International Airport is a national major and important air gateway of Vietnam. It is expected to become one of the hub airport in Southeast Asia, with a total capacity of 100 million passengers annual and 5 million tons cargo annual. Long Thanh International Airport construction shall overcome the current overload situation of Tan Son Nhat International Airport (SGN).
 
