@@ -1,5 +1,13 @@
 # SARIMA-model.py
-Using SARIMA Time Series Model to forecast future passenger traffic at Long Thanh International Airport (LTIA) from 2023-2035
+Using SARIMA Time Series Model to forecast future passenger traffic at Long Thanh International Airport (LTIA) Phase 1 from 2023-2035
+
+Long Thanh International Airport is a national major and important air gateway of Vietnam. It is expected to become one of the hub airport in Southeast Asia, with a total capacity of 100 million passengers annual and 5 million tons cargo annual. Long Thanh International Airport construction shall overcome the current overload situation of Tan Son Nhat International Airport (SGN).
+
+The SARIMA (Seasonal Autoregressive Integrated Moving Average) model stands as a powerful tool in the realm of time series forecasting, particularly suited for complex data patterns characterized by seasonality, trend, and irregular fluctuations. It extends the foundational ARIMA model by incorporating seasonal components, making it especially apt for forecasting airport passenger traffic data. As airports witness dynamic changes in passenger numbers throughout the year due to holidays, travel seasons, and events, SARIMA's ability to capture both short-term and long-term patterns proves invaluable.
+
+The SARIMA model combines autoregressive (AR) and moving average (MA) components with differencing and seasonal differencing, thus enabling accurate representation and prediction of temporal dependencies in the data. The autoregressive part accounts for past values' influence on the current value, while the moving average component considers the impact of past prediction errors. These components are augmented by differencing to stabilize and remove trends, which is especially crucial for non-stationary data like passenger traffic.
+
+The introduction of seasonality involves an additional set of AR, MA, and differencing terms, allowing the model to account for recurring patterns over specific time intervals (e.g., daily, weekly, or monthly). This is especially pertinent for airport passenger traffic, which often exhibits consistent high and low seasons throughout the year due to factors such as holidays, vacation periods, and local events. By capturing both the seasonal variations and underlying trends, the SARIMA model ensures more accurate and reliable predictions.
 
     import warnings
     import itertools
@@ -90,6 +98,7 @@ Date           Monthly Pax
 
 ADF Statistic: -2.371819
 p-value: 0.149849\
+\
 1%: -3.482920063655088 - The data is not stationary with 99% confidence\
 5%: -2.884580323367261 - The data is not stationary with 95% confidence\
 10%: -2.5790575441750883 - The data is not stationary with 90% confidence\
@@ -370,5 +379,6 @@ Process finished with exit code 0
 # International pax forecast
 ![Intl_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Intl_graph.png)
 
-
+# Conclusion
+As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
 
