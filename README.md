@@ -99,7 +99,7 @@ Date           Monthly Pax
     print('Critical Values:')
     print("")
 
-ADF Statistic: -2.371819
+ADF Statistic: -2.371819\
 p-value: 0.149849\
 \
 1%: -3.482920063655088 - The data is not stationary with 99% confidence\
@@ -354,15 +354,14 @@ Process finished with exit code 0
 
 # Total pax forecast
 
-Date	Forecast	Actual	Absolute % Error
-1/1/2023	 3,508,168 	 3,816,658 	8.08%
-2/1/2023	 3,437,096 	 3,185,644 	7.89%
-3/1/2023	 3,374,886 	 3,262,966 	3.43%
-4/1/2023	 3,360,680 	 3,127,879 	7.44%
-5/1/2023	 3,347,965 	 3,295,803 	1.58%
-6/1/2023	 3,401,006 	 3,684,908 	7.70%
-
-
+| Date | Forecast |	Actual | Absolute % Error|
+| -------- | --------- | --------- | ----- |
+| 1/1/2023 | 3,508,168 | 3,816,658 | 8.08% |
+| 2/1/2023 | 3,437,096 | 3,185,644 | 7.89% |
+| 3/1/2023 | 3,374,886 | 3,262,966 | 3.43% |
+| 4/1/2023 | 3,360,680 | 3,127,879 | 7.44% |
+| 5/1/2023 | 3,347,965 | 3,295,803 | 1.58% |
+| 6/1/2023 | 3,401,006 | 3,684,908 | 7.70% |
 
 # Conclusion
 As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
