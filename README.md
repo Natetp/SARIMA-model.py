@@ -46,7 +46,7 @@ Monthly passenger data at SGN airport from 2012 to 2022 is used as input to trai
 | 2022-10-01 | 3,049,318 |
 | 2022-11-01 | 3,001,299 |
 | 2022-12-01 | 3,258,710 |
-\
+
 [132 rows x 1 columns]
 
 # Seasonality/ Trend
@@ -338,7 +338,7 @@ rmse - Root-mean-square deviation: 2049002.3282535903
 | 2035-10-01 | 7.141748e+06 |
 | 2035-11-01 | 7.232346e+06 |
 | 2035-12-01 | 7.409532e+06 |
-\
+
 Freq: MS, Name: predicted_mean, dtype: float64\
 
 Process finished with exit code 0
