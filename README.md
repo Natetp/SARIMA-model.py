@@ -258,7 +258,6 @@ Skew:                                -0.67
 Prob(H) (two-sided):                  0.00  
 Kurtosis:                             6.84  
 
-
 # Validate model accuracy
     forecast_test = model_fit.forecast(len(test_data))
     mae = mean_absolute_error(test_data, forecast_test)
@@ -313,36 +312,35 @@ rmse - Root-mean-square deviation: 2049002.3282535903
 
 | Date | Forecast Monthly pax |
 | -------- | --------- |
-| 2023-01-01 | 3.508168e+06 |
-| 2023-02-01 | 3.437096e+06 |
-| 2023-03-01 | 3.374886e+06 |
-| 2023-04-01 | 3.360680e+06 |
-| 2023-05-01 | 3.347965e+06 |
-| 2023-06-01 | 3.401006e+06 |
-| 2023-07-01 | 3.571990e+06 |
-| 2023-08-01 | 3.264586e+06 |
-| 2023-09-01 | 3.148431e+06 |
-| 2023-10-01 | 3.282201e+06 |
-| 2023-11-01 | 3.302302e+06 |
-| 2023-12-01 | 3.467837e+06 |
+| 2023-01-01 | 3,508,168 |
+| 2023-02-01 | 3,437,096 |
+| 2023-03-01 | 3,374,886 |
+| 2023-04-01 | 3,360,680 |
+| 2023-05-01 | 3,347,965 |
+| 2023-06-01 | 3,401,006 |
+| 2023-07-01 | 3,571,990 |
+| 2023-08-01 | 3,264,586 |
+| 2023-09-01 | 3,148,431 |
+| 2023-10-01 | 3,282,201 |
+| 2023-11-01 | 3,302,302 |
+| 2023-12-01 | 3,467,837 |
 | ... | ... |
-| 2035-01-01 | 7.430841e+06 |
-| 2035-02-01 | 7.406244e+06 |
-| 2035-03-01 | 7.278502e+06 |
-| 2035-04-01 | 7.185733e+06 |
-| 2035-05-01 | 7.192210e+06 |
-| 2035-06-01 | 7.328995e+06 |
-| 2035-07-01 | 7.526894e+06 |
-| 2035-08-01 | 7.155600e+06 |
-| 2035-09-01 | 6.980052e+06 |
-| 2035-10-01 | 7.141748e+06 |
-| 2035-11-01 | 7.232346e+06 |
-| 2035-12-01 | 7.409532e+06 |
+| 2035-01-01 | 7,430,841 |
+| 2035-02-01 | 7,406,244 |
+| 2035-03-01 | 7,278,502 |
+| 2035-04-01 | 7,185,733 |
+| 2035-05-01 | 7,192,210 |
+| 2035-06-01 | 7,328,995 |
+| 2035-07-01 | 7,526,894 |
+| 2035-08-01 | 7,155,600 |
+| 2035-09-01 | 6,980,052 |
+| 2035-10-01 | 7,141,748 |
+| 2035-11-01 | 7,232,346 |
+| 2035-12-01 | 7,409,532 |
 
 Freq: MS, Name: predicted_mean, dtype: float64\
 
 Process finished with exit code 0
-
 
 # Total pax forecast
 
@@ -358,4 +356,10 @@ Process finished with exit code 0
 # Conclusion
 Passenger traffic in Ho Chi Minh City area will be expected to recover in late 2023 and 2024 at the latest, and continue to grow steadily at a compound annual growth rate of 6.76% over the five-year period from 2023 to 2027.
 As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
+
+# References
+Box, G.E.P., and G.M. Jenkins (1976). Time Señes Analysis: Forecasting and Control, Revised Edition, Holden Day, San Francisco\
+Chaitip, R, Chaiboonsri and R. Mukhjang (2008). Time Series Models for Forecasting International Visitor Arrivals to Thailand, International Conference on Applied Economics, 2008, 159-163\
+Tsui, Kan & Balli, Hatice & Gilbey, Andrew & Gow, Hamish. (2014). Forecasting of Hong Kong airport's passenger throughput. Tourism Management. 42. 62–76. 10.1016/j.tourman.2013.10.008
+
 
