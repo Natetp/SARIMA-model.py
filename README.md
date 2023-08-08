@@ -25,12 +25,13 @@ The introduction of seasonality involves an additional set of AR, MA, and differ
     plt.rcParams.update({'figure.figsize':(9,7), 'figure.dpi':120})
 
 # Dataset
+Monthly passenger data at SGN airport from 2012 to 2022 is used as input to train the model and validate model predicted traffic to actual values. Then, the model will be used to forecast out-of-sample traffic data.
     excel_file = "SGN_LTIA_forecastpax.xlsx"
     df = pd.read_excel(excel_file, index_col=0)
     df = df.asfreq('MS')
     df.rename(columns= {'Total_pax': 'Monthly Pax'},inplace=True)
-    print(df.head(132))
-           
+    print(df.head(132))   
+
 Date           Monthly Pax           
 2012-01-01        1614296\
 2012-02-01        1420632\
@@ -308,43 +309,19 @@ rmse - Root-mean-square deviation: 2974174.424456362
     print(df2.tail(60))
 
 Forecast monthly pax
+2023-01-01    3.508168e+06\
+2023-02-01    3.437096e+06\
+2023-03-01    3.374886e+06\
+2023-04-01    3.360680e+06\
+2023-05-01    3.347965e+06\
+2023-06-01    3.401006e+06\
+2023-07-01    3.571990e+06\
+2023-08-01    3.264586e+06\
+2023-09-01    3.148431e+06\
+2023-10-01    3.282201e+06\
+2023-11-01    3.302302e+06\
+2023-12-01    3.467837e+06\
 ...\
-2031-01-01    6.136456e+06\
-2031-02-01    6.109014e+06\
-2031-03-01    5.978810e+06\
-2031-04-01    5.887383e+06\
-2031-05-01    5.896881e+06\
-2031-06-01    6.034029e+06\
-2031-07-01    6.229298e+06\
-2031-08-01    5.856255e+06\
-2031-09-01    5.682230e+06\
-2031-10-01    5.846378e+06\
-2031-11-01    5.936864e+06\
-2031-12-01    6.111699e+06\
-2032-01-01    6.455415e+06\
-2032-02-01    6.432181e+06\
-2032-03-01    6.307458e+06\
-2032-04-01    6.215033e+06\
-2032-05-01    6.218870e+06\
-2032-06-01    6.353920e+06\
-2032-07-01    6.553357e+06\
-2032-08-01    6.184511e+06\
-2032-09-01    6.008835e+06\
-2032-10-01    6.168174e+06\
-2032-11-01    6.257629e+06\
-2032-12-01    6.436407e+06\
-2033-01-01    6.783200e+06\
-2033-02-01    6.757927e+06\
-2033-03-01    6.629235e+06\
-2033-04-01    6.536590e+06\
-2033-05-01    6.544021e+06\
-2033-06-01    6.681201e+06\
-2033-07-01    6.878420e+06\
-2033-08-01    6.506392e+06\
-2033-09-01    6.331087e+06\
-2033-10-01    6.493600e+06\
-2033-11-01    6.584408e+06\
-2033-12-01    6.760943e+06\
 2034-01-01    7.105269e+06\
 2034-02-01    7.080772e+06\
 2034-03-01    6.954802e+06\
@@ -375,10 +352,16 @@ Process finished with exit code 0
 
 
 # Total pax forecast
-![Totalpax_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Totalpax_graph.png)
 
-# International pax forecast
-![Intl_graph.png](https://github.com/Natetp/SARIMA-model.py/blob/main/Pax%20Graph/Intl_graph.png)
+Date	Forecast	Actual	Absolute % Error
+1/1/2023	 3,508,168 	 3,816,658 	8.08%
+2/1/2023	 3,437,096 	 3,185,644 	7.89%
+3/1/2023	 3,374,886 	 3,262,966 	3.43%
+4/1/2023	 3,360,680 	 3,127,879 	7.44%
+5/1/2023	 3,347,965 	 3,295,803 	1.58%
+6/1/2023	 3,401,006 	 3,684,908 	7.70%
+
+
 
 # Conclusion
 As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
