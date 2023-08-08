@@ -26,6 +26,7 @@ The introduction of seasonality involves an additional set of AR, MA, and differ
 
 # Dataset
 Monthly passenger data at SGN airport from 2012 to 2022 is used as input to train the model and validate model predicted traffic to actual values. Then, the model will be used to forecast out-of-sample traffic data.
+
     excel_file = "SGN_LTIA_forecastpax.xlsx"
     df = pd.read_excel(excel_file, index_col=0)
     df = df.asfreq('MS')
