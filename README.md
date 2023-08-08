@@ -342,8 +342,8 @@ Freq: MS, Name: predicted_mean, dtype: float64\
 
 Process finished with exit code 0
 
-# Total pax forecast (Updated data as of Jun 2023)
-The following table shows the comparison of the forecasted data versus the actual data. The first 6-month pax traffic data was provided by SGN airport to validate the accuracy of the model. The Mean Absolute Percentage Error (MAPE) is 6.02%. It seems the results of SARIMA(2,1,2)(0,1,1,12) are quite close to actual traffic data. The last 6-month traffic data will be compared at the end of this year.
+# Total pax forecast (Updated half-year data as of Jun 2023)
+The following table shows the comparison of the forecasted data versus the actual data. The first 6-month pax traffic data was provided by SGN airport to validate the accuracy of the model. The Mean Absolute Percentage Error (MAPE) is 6.02%. It seems the results of SARIMA(2,1,2)(0,1,1,12) are quite close to the actual traffic data. The last 6-month traffic data will be compared at the end of this year.
 | Date | Forecast |	Actual | Absolute % Error|
 | -------- | --------- | --------- | ----- |
 | 2023-01-01 | 3,508,168 | 3,816,658 | 8.08% |
