@@ -358,8 +358,8 @@ Passenger traffic in Ho Chi Minh City area will be expected to recover in late 2
 As airports play a pivotal role in global travel and commerce, the insights provided by the SARIMA model can aid stakeholders in making informed decisions, optimizing operations, and planning for contingencies. By harnessing the power of SARIMA, accurate predictions and proactive strategies become attainable, ensuring the seamless management of airport resources and passenger experiences.
 
 # References
-Box, G.E.P., and G.M. Jenkins (1976). Time Señes Analysis: Forecasting and Control, Revised Edition, Holden Day, San Francisco\
-Chaitip, R, Chaiboonsri and R. Mukhjang (2008). Time Series Models for Forecasting International Visitor Arrivals to Thailand, International Conference on Applied Economics, 2008, 159-163\
-Tsui, Kan & Balli, Hatice & Gilbey, Andrew & Gow, Hamish. (2014). Forecasting of Hong Kong airport's passenger throughput. Tourism Management. 42. 62–76. 10.1016/j.tourman.2013.10.008
+- Box, G.E.P., and G.M. Jenkins (1976). Time Señes Analysis: Forecasting and Control, Revised Edition, Holden Day, San Francisco.\
+- Chaitip, R, Chaiboonsri and R. Mukhjang (2008). Time Series Models for Forecasting International Visitor Arrivals to Thailand, International Conference on Applied Economics, 2008, 159-163.\
+- Tsui, Kan & Balli, Hatice & Gilbey, Andrew & Gow, Hamish. (2014). Forecasting of Hong Kong airport's passenger throughput. Tourism Management. 42. 62–76. 10.1016/j.tourman.2013.10.008.
 
 
