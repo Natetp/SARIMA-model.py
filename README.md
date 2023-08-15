@@ -245,7 +245,7 @@ Performing stepwise search to minimize aic
     print(model_fit.summary())
     print("")
 
-# SARIMAX Results                                       
+# SARIMA Results                                       
 
 Dep. Variable:                          Monthly Pax   
 No. Observations:                  132  
